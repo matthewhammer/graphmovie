@@ -1,34 +1,5 @@
 /* graph element states */
 
-.frc .connection {
-  stroke: blue;
-  stroke-width: 5px;
-}
-.mut .connection {
-  stroke: green;
-  stroke-width: 10px;
-  stroke-dasharray: 10,20;
-}
-.refc-many rect {
-  stroke-width:5;
-  stroke:blue;
-  fill:#ccccff;
-}
-.refc-two rect {
-  stroke-width:3;
-  stroke:blue;
-  fill:#ccccff;
-}
-.refc-one rect {
-  stroke-width:1;
-  stroke:blue;
-  fill:#ccccff;
-}
-.refc-zero rect {
-  stroke-width:0;
-  fill:#ffcccc;
-}
-
 .nonactive .connection {
   stroke: #c0c0c0;
   stroke-width: 1px;
@@ -68,7 +39,7 @@
   position: fixed;
   top: 5px;
   left: 0px;
-  width: 250px;
+  width: 400px;
   height: 20px;
 }
 
@@ -94,7 +65,7 @@ svg#v-3 {
   position: fixed;
   top: 30px;
   left: 0px;
-  width: 250px;
+  width: 400px;
   /*width:20%;*/
   bottom: 15px;
 }
@@ -112,13 +83,60 @@ and edges.  Each event corresponds to small-step (O(1)-time operation)
 that occurs within the Adapton Library's change propagation
 algorithm. */
 
-.create-fresh-thunk rect {
- stroke: #ffffcc;
+/* Classes used in 'Graph state' commands: */
+
+.force .connection {
+  stroke: blue;
+  stroke-width: 5px;
+}
+.create .connection {
+ stroke: #aaffcc;
  stroke-width: 5px;
- fill:#ffffbb;
+/*
+  stroke: green;
+  stroke-width: 10px;
+  stroke-dasharray: 10,20;
+*/
+}
+.refc-many rect {
+  stroke-width:5;
+  stroke:blue;
+  fill:#ccccff;
+}
+.refc-two rect {
+  stroke-width:3;
+  stroke:blue;
+  fill:#ccccff;
+}
+.refc-one rect {
+  stroke-width:1;
+  stroke:blue;
+  fill:#ccccff;
+}
+.refc-zero rect {
+  stroke-width:0;
+  fill:#ffcccc;
 }
 
-.create-cached-thunk rect {
+/* Classes used in 'Change state' commands: */
+
+.create-fresh-true .connection {
+ stroke: #aaffcc;
+ stroke-width: 10px;
+}
+
+.create-fresh-false .connection {
+ stroke: #aaffcc;
+ stroke-width: 10px;
+}
+
+.create-fresh-true rect {
+ stroke: #aaffcc;
+ stroke-width: 5px;
+ fill:#aaffbb;
+}
+
+.create-fresh-false rect {
  stroke: #ccffcc;
  stroke-width: 5px;
  fill:#bbffbb;
@@ -165,7 +183,7 @@ algorithm. */
 }
 
 .force-pre rect {
- stroke: green;
+ stroke: lightblue;
  fill:#99ff99;
 }
 
@@ -174,31 +192,41 @@ algorithm. */
  fill:#ccccff;
 }
 
+.force-pre .connection {
+ stroke: lightblue;
+ stroke-width: 20px;
+ stroke-dasharray:10,20;
+}
+
+.force-post .connection {
+ stroke: blue;
+ stroke-width: 10px;
+}
+
 .mark-filthy rect {
  stroke: red;
  fill:#ff8888;
 }
 
 .eval-pre rect {
- stroke:green;
- fill:#ffff99;
+ stroke:lightblue;
+ stoke-width:5px;
+ fill:yellow;
 }
 
 .eval-post rect {
- stroke:green;
- fill:#ffff99;
+ stroke: darkblue;
+ fill:lightblue;
 }
 
 .dirty-pre rect {
  stroke:red;
  fill:#ff99bb;
 }
-
 .dirty-edge .connection {
  stroke:red;
- stroke-width: 5px;
+ stroke-width:20px;
 }
-
 .dirty-post rect {
  stroke:red;
  fill:#ffbbdd;
@@ -208,28 +236,32 @@ algorithm. */
  stroke: blue;
  fill:#9999ff;
 }
-
 .clean-edge-pre .connection {
  stroke: cyan;
- stroke-width:10px;
+ stroke-width:20px;
  stroke-dasharray: 10,20;
 }
-
 .clean-edge-post .connection {
  stroke: blue;
- stroke-width:5px;
+ stroke-width:15px;
 }
-
 .check-true rect {
  stroke: darkblue;
- fill:#9999ff;
+ fill:lightblue;
 }
-
 .check-false rect {
- stroke: lightblue;
- fill:#9999ff;
+ stroke: purple;
+ fill:plum;
 }
-
 .check-edge .connection {
  stroke: darkblue;
+ stroke-width:15px;
+}
+.check-edge-true .connection {
+ stroke: darkblue;
+ stroke-width:15px;
+}
+.check-edge-false .connection {
+ stroke: purple;
+ stroke-width:15px;
 }
